@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
+import { useGlobalContext } from './FormContext'
 
-const Alert = ({ type, msg, removeAlert }) => {
+const Alert = ({ msg, type }) => {
+	const { showAlert } = useGlobalContext()
 	useEffect(() => {
 		const timeout = setTimeout(() => {
-			removeAlert()
+			showAlert()
 		}, 1700)
 		return () => clearTimeout(timeout)
 	})
